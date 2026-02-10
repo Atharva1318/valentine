@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Ketki ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --deep-rose: #c9184a; 
+            --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
+        }
+
+        body, html { 
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-gradient);
+            overflow-x: hidden; 
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        /* --- STAGE 1: THE INITIAL QUESTION --- */
+        #step1 { 
+            z-index: 1000; 
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 50px 40px; border-radius: 40px; 
+            box-shadow: 0 20px 60px rgba(201, 24, 74, 0.2); 
+            text-align: center; width: 85%; max-width: 380px;
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        #step1 h1 { 
+            font-family: 'Playfair Display', serif; 
+            color: var(--deep-rose); 
+            font-size: 34px; margin-bottom: 30px; 
+        }
+
+        .btn-group { display: flex; flex-direction: column; gap: 15px; }
+        
+        button { 
+            background: var(--deep-rose); color: white; border: none; 
+            padding: 18px; font-size: 20px; border-radius: 50px; 
+            cursor: pointer; font-family: 'Montserrat', sans-serif;
+            font-weight: 700; letter-spacing: 2px; transition: 0.3s;
+        }
+        button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(201, 24, 74, 0.3); }
+
+        /* --- STAGE 2: CONTENT --- */
+        #step2 { 
+            display: none; position: relative; width: 100%; min-height: 100vh;
+            flex-direction: column; align-items: center; justify-content: center; 
+            animation: fadeIn 1.5s forwards; padding: 40px 20px; box-sizing: border-box;
+        }
+
+        .polaroid { 
+            position: absolute; background: white; padding: 15px 15px 70px 15px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2); 
+            width: 350px; 
+            z-index: 5; transition: 0.5s ease;
+            border: 1px solid #f0f0f0;
+        }
+        .polaroid img { width: 100%; height: 350px; object-fit: cover; }
+        .polaroid:hover { transform: scale(1.05) rotate(0deg) !important; z-index: 50; }
+
+        .particle {
+            position: absolute; bottom: -100px; font-size: 2rem;
+            animation: floatUp 8s linear infinite; opacity: 0.6; z-index: 1;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+
+        .message-box { 
+            background: rgba(255, 255, 255, 0.98); padding: 45px; border-radius: 35px; 
+            width: 90%; max-width: 600px; text-align: center; 
+            box-shadow: 0 25px 60px rgba(0,0,0,0.1); 
+            z-index: 10; border-top: 10px solid var(--deep-rose); 
+            font-size: 19px; color: #333; line-height: 1.9;
+            animation: slideUp 1s ease;
+        }
+
+        .highlight { font-weight: 700; color: var(--deep-rose); }
+        .nazar { text-shadow: 0 0 10px rgba(0, 119, 190, 0.5); }
+
+        /* --- TEDDY SECTION --- */
+        .teddy-container { 
+            margin-top: 40px; display: flex; flex-direction: column; align-items: center; 
+            cursor: pointer; z-index: 100;
+        }
+        .speech-bubble { 
+            background: var(--deep-rose); color: white; padding: 12px 25px; 
+            border-radius: 25px; font-size: 16px; margin-bottom: 12px; 
+            font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .teddy-icon { font-size: 85px; animation: swing 2s ease-in-out infinite; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes swing { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+
+        @media (max-width: 768px) {
+            .polaroid { width: 250px; position: relative; margin: 15px 0; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; transform: rotate(0deg) !important; }
+            .polaroid img { height: 250px; }
+            #step2 { justify-content: flex-start; overflow-y: auto; }
+            .message-box { padding: 30px; font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="step1">
+        <h1>Will you be my Valentine's Ketki?</h1>
+        <div class="btn-group">
+            <button onclick="nextStep()">Yes, I will ❤️</button>
+            <button onclick="nextStep()">Yes, Forever ❤️</button>
+        </div>
+    </div>
+
+    <div id="step2">
+        <div id="particles-container"></div>
+
+        <div class="polaroid" style="top: 5%; left: 2%; transform: rotate(-6deg);">
+            <img src="https://i.postimg.cc/x8KJdJtz/e2725438-8cb3-450c-874a-6b4eeb1d2784.jpg" alt="Our Memory 1">
+        </div>
+        
+        <div class="polaroid" style="bottom: 5%; right: 2%; transform: rotate(6deg);">
+            <img src="https://i.postimg.cc/Jz7D1hJK/03e114fb-7873-4c52-8383-62008eb88904.jpg" alt="Our Memory 2">
+        </div>
+
+        <div class="message-box">
+            <p>Hello, my love.</p>
+            <p>This is our first Valentine’s together, and honestly, I never imagined I’d be lucky enough to experience days like this with you. Even now, it still feels like a beautiful dream.</p>
+            <p>I may not be there with you physically, but please know that I miss you <span class="highlight">very very much</span> and love you endlessly. Thank you for coming into my life and making it so much brighter.</p>
+            <p class="highlight">Please be my Valentine forever—you are truly the best thing that has ever happened to me. <span class="nazar">🧿❤️</span></p>
+        </div>
+
+        <a href="https://wa.me/8766933236?text=Yes%2C%20my%20love!%20I%20will%20be%20your%20Valentine%20forever!%20I%20love%20you%20so%20much%20Atharva!%20%E2%9D%A4%EF%B8%8F%F0%9F%A7%BF" style="text-decoration: none;">
+            <div class="teddy-container">
+                <div class="speech-bubble">Click me if you love Atharva</div>
+                <div class="teddy-icon">🧸</div>
+            </div>
+        </a>
+    </div>
+
+    <script>
+        function nextStep() {
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'flex';
+            startHearts();
+        }
+
+        function startHearts() {
+            const container = document.getElementById('particles-container');
+            const icons = ['🌸','❤️','✨','🧿','🌹','🧸'];
+            setInterval(() => {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.innerText = icons[Math.floor(Math.random() * icons.length)];
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                container.appendChild(p);
+                setTimeout(() => p.remove(), 8000);
+            }, 350);
+        }
+    </script>
+</body>
+</html>
